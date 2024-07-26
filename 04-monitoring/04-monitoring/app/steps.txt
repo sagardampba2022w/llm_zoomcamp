@@ -1,0 +1,12 @@
+Docker compose up
+
+$export POSTGRES_HOST = "localhost"
+(Run) python prep.py
+
+$ pgcli -h  localhost -U your_username -d course_assistant -W #connecting to postgres
+
+\l
+
+\c course_assistant #connect to course assistant dataves
+
+\dt #list all the tables
