@@ -7,6 +7,8 @@ services:
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms256m -Xmx256m  # Lower JVM heap size
+
     ports:
       - "${ELASTIC_PORT:-9200}:9200"
       - "9300:9300"

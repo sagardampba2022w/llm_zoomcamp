@@ -10,7 +10,7 @@ from sentence_transformers import SentenceTransformer
 
 ELASTIC_URL = os.getenv("ELASTIC_URL", "http://elasticsearch:9200")
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://ollama:11434/v1/")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "your-api-key-here")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "sk-proj-232A9cDCDVVIge2sy3j8T3BlbkFJbqjcmSyCnL2tYg2ZKRfy")
 
 
 es_client = Elasticsearch(ELASTIC_URL)
