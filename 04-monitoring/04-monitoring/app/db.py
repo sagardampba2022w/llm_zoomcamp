@@ -1,35 +1,20 @@
 import os
 import psycopg2
 from psycopg2.extras import DictCursor
-from dotenv import load_dotenv  # Make sure this import is at the top
-
 from datetime import datetime
 from zoneinfo import ZoneInfo
-
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Print statements to verify environment variables are loaded
-print(f"POSTGRES_HOST: {os.getenv('POSTGRES_HOST')}")
-print(f"POSTGRES_DB: {os.getenv('POSTGRES_DB')}")
-print(f"POSTGRES_USER: {os.getenv('POSTGRES_USER')}")
-print(f"POSTGRES_PASSWORD: {os.getenv('POSTGRES_PASSWORD')}")
-print(f"POSTGRES_PORT: {os.getenv('POSTGRES_PORT')}")
-
-
 
 tz = ZoneInfo("Europe/Berlin")
 
 
 def get_db_connection():
     return psycopg2.connect(
-        host=os.getenv("POSTGRES_HOST", "localhost"),
+        host=os.getenv("POSTGRES_HOST", "postgres"),
         database=os.getenv("POSTGRES_DB", "course_assistant"),
         user=os.getenv("POSTGRES_USER", "your_username"),
         password=os.getenv("POSTGRES_PASSWORD", "your_password"),
-        port=os.getenv("POSTGRES_PORT", 5432)
     )
+
 
 def init_db():
     conn = get_db_connection()
